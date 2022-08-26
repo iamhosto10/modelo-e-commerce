@@ -7,8 +7,23 @@ export default async function () {
   const snaps = await getDocs(filtrar);
   const productos = [];
 
-  snaps.forEach((doc) => {
-    productos.push(doc.data());
-  });
+  // snaps.forEach((doc) => {
+  //   console.log(doc.data());
+  // });
+
+  for await (const snap of snaps.docs) {
+    const producto = snap.data();
+    producto.id = snap.id;
+    const preciosSnap = await getDocs(collection(snap.ref, "prices"));
+    producto.prices = preciosSnap.docs[0].data();
+    productos.push(producto);
+  }
   console.log(productos);
+
+  return productos;
+
+  // snaps.forEach((doc) => {
+  //   productos.push(doc.data());
+  // });
+  // console.log(productos);
 }
