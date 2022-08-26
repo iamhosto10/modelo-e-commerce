@@ -1,0 +1,11 @@
+export { default as Home } from "./Home";
+export { default as Carrito } from "./Carrito";
+export { default as Checkout } from "./Checkout";
+export { default as Combos } from "./Combos";
+export { default as Comomecuido } from "./Como-me-cuido";
+export { default as CuidadoCapilar } from "./Cuidado-Capilar";
+export { default as CuidadoCorporal } from "./Cuidado-Corporal";
+export { default as CuidadoFacial } from "./Cuidado-Facial";
+export { default as Login } from "./Login";
+export { default as NotFound } from "./NotFound";
+export { default as Perfil } from "./Perfil";
