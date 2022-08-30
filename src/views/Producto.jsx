@@ -25,15 +25,16 @@ function Producto() {
       <h1 className="text-5xl font-bold underline">
         Producto: {productInfo?.name}
       </h1>
-      {/* <Link to="/Carrito">
+      <Link to="/Carrito">
         <button>carrito</button>
-      </Link> */}
+      </Link>
       <img
         src={productInfo?.images[0]}
         alt={productInfo?.name}
         className="max-w-1/3 mx-auto"
       />
-      <button onClick={addtocart()}>Añadir a Carrito</button>
+      {/* <button>Añadir a Carrito</button> */}
+      <button onClick={addtocart}>Añadir a Carrito</button>
       <button>Comprar Ahora</button>
     </div>
   );
