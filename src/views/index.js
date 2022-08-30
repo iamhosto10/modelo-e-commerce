@@ -9,3 +9,5 @@ export { default as CuidadoFacial } from "./Cuidado-Facial";
 export { default as Login } from "./Login";
 export { default as NotFound } from "./NotFound";
 export { default as Perfil } from "./Perfil";
+export { default as Producto } from "./Producto";
+// exporto todas las rutas con un nombre

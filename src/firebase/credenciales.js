@@ -5,6 +5,8 @@ import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+// En este archivo contengo todo los datos que estan en la base de datos de firebase y de firestone, todo este codigo te lo da firebase
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyC8eGrCzgdNUKTWlm3Vnw0RMorw5_ND2mI",

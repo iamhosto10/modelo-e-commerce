@@ -1,16 +1,17 @@
-import { db } from "../firebase/credenciales";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../firebase/credenciales"; // importo la base de datos de firebase
+import { collection, getDocs, query, where } from "firebase/firestore"; // obtengo funciones que utilizare para obtener ciertos datos de firebase
 
 export default async function () {
-  const collectionRef = collection(db, "products");
-  const filtrar = query(collectionRef, where("active", "==", true));
-  const snaps = await getDocs(filtrar);
+  const collectionRef = collection(db, "products"); // obtengo todos los productos de la base de datos
+  const filtrar = query(collectionRef, where("active", "==", true)); // filtro los productos de la base de datos
+  const snaps = await getDocs(filtrar); // los guardo en la variable snaps
   const productos = [];
 
   // snaps.forEach((doc) => {
   //   console.log(doc.data());
   // });
 
+  // obtengo los precios debido a que los precios son otro array en firebase
   for await (const snap of snaps.docs) {
     const producto = snap.data();
     producto.id = snap.id;

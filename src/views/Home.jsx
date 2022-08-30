@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import getActiveProducts from "../functions/getActiveProducts";
+import ItemCard from "../components/ItemCard";
 
 function Home() {
   const [productos, setProductos] = useState(null);
@@ -13,7 +14,12 @@ function Home() {
   return (
     <ul>
       {productos
-        ? productos.map((p) => <li>{p.name + " " + p.prices.unit_amount}</li>)
+        ? productos.map((p) => (
+            <li key={p.id}>
+              <ItemCard product={p}></ItemCard>
+              <br></br>
+            </li>
+          ))
         : null}
     </ul>
   );
