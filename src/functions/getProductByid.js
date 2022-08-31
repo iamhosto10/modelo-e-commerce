@@ -1,5 +1,5 @@
 import { db } from "../firebase/credenciales"; // importo la base de datos de firebase
-import { collection, getDoc, doc } from "firebase/firestore"; // obtengo funciones que utilizare para obtener ciertos datos de firebase
+import { collection, getDoc, getDocs, doc } from "firebase/firestore"; // obtengo funciones que utilizare para obtener ciertos datos de firebase
 
 async function getProductsById(id) {
   const collectionRef = collection(db, "products");
