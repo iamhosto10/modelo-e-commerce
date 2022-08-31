@@ -1,6 +1,9 @@
+import { onAuthStateChanged } from "firebase/auth"; // todos los cambios de inicio o cierre de sesion los escuchamos con este atributo
 import React from "react";
 import { /*BrowserRouter,*/ Routes, Route } from "react-router-dom"; // esto sirve para dirigir las rutas
 import "./App.css";
+import { useUserContext } from "./contexts/UserContext";
+import { auth } from "./firebase/credenciales"; // esta funcion permite acceder a los datos de authenticacion de firebase
 import {
   Home,
   Carrito,
@@ -17,6 +20,11 @@ import {
 } from "./views"; // estos son las vistas de cada uno de las paginas que se tienen estan creadas en las carpeta views y se importan
 
 function App() {
+  const { user, setUser } = useUserContext();
+  onAuthStateChanged(auth, (firebaseuser) => {
+    if (firebaseuser) return setUser(firebaseuser);
+    if (!firebaseuser) return setUser(null);
+  });
   return (
     <Routes>
       <Route path="/" element={<Home />} />

@@ -6,6 +6,11 @@ async function getProductsById(id) {
   const docuRef = doc(collectionRef, id);
   const snapDoc = await getDoc(docuRef);
   const producto = snapDoc.data();
+  producto.id = snapDoc.id;
+  const preciosSnap = await getDocs(collection(snapDoc.ref, "prices"));
+  producto.prices = preciosSnap.docs[0].data();
+  producto.pricesid = preciosSnap.docs[0].id;
+
   return producto;
 }
 

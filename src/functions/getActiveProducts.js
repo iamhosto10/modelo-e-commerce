@@ -17,6 +17,7 @@ export default async function () {
     producto.id = snap.id;
     const preciosSnap = await getDocs(collection(snap.ref, "prices"));
     producto.prices = preciosSnap.docs[0].data();
+    producto.pricesid = preciosSnap.docs[0].id;
     productos.push(producto);
   }
   console.log(productos);
