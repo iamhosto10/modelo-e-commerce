@@ -3,6 +3,7 @@ import { useCarritoContext } from "../contexts/carritoContext";
 import { Link } from "react-router-dom";
 import { useUserContext } from "../contexts/UserContext";
 import loginEmail from "../functions/loginemail";
+import createcheckout from "../functions/createcheckout";
 
 function Carrito() {
   const { carrito } = useCarritoContext();
@@ -14,6 +15,8 @@ function Carrito() {
     if (user) {
       console.log("esta con la sesion iniciada");
       //aqui vamos a hacer la funcion de compra por que ya iniciamos sesion
+
+      createcheckout(user.uid, carrito);
     }
     if (!user) {
       setIsmodal(true);
@@ -23,9 +26,21 @@ function Carrito() {
     e.preventDefault();
     const correo = e.target.email.value;
     const password = e.target.password.value;
-    loginEmail(correo, password);
+    loginEmail(correo, password).then((e) =>
+      createcheckout(e.user.uid, carrito)
+    );
     setIsmodal(false);
     //aqui vamos a hacer la funcion de compra por que ya inciamos sesion
+    console.log("usuario");
+
+    if (user) {
+      console.log("esta con la sesion iniciada");
+      //aqui vamos a hacer la funcion de compra por que ya iniciamos sesion
+      console.log(user);
+      console.log(user.uid);
+      // createcheckout(user.uid, carrito);
+    }
+    // createcheckout(user.uid, carrito);
   }
   return (
     <div className="relative">

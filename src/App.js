@@ -22,8 +22,15 @@ import {
 function App() {
   const { user, setUser } = useUserContext();
   onAuthStateChanged(auth, (firebaseuser) => {
-    if (firebaseuser) return setUser(firebaseuser);
-    if (!firebaseuser) return setUser(null);
+    if (firebaseuser) {
+      console.log("entro");
+      console.log(firebaseuser);
+      return setUser(firebaseuser);
+    }
+    if (!firebaseuser) {
+      console.log("no entro");
+      return setUser(null);
+    }
   });
   return (
     <Routes>
