@@ -3,6 +3,7 @@ import getActiveProducts from "../functions/getActiveProducts";
 import ItemCard from "../components/ItemCard";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/credenciales";
+import Navbar from "../components/Navbar";
 
 function Home() {
   const [productos, setProductos] = useState(null);
@@ -18,8 +19,14 @@ function Home() {
     signOut(auth);
   }
   return (
-    <div>
+    <>
+      <Navbar />
+
       <button onClick={cerrarsesion}>cerrar sesion</button>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <br></br>
       <br></br>
       <br></br>
@@ -33,7 +40,7 @@ function Home() {
             ))
           : null}
       </ul>
-    </div>
+    </>
   );
 }
 
