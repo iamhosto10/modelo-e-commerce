@@ -1,9 +1,13 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 function CuidadoFacial() {
-    return <div className="text-3xl underline font-bold">
-        CuidadoFacial
-    </div> 
+  return (
+    <>
+      <Navbar />
+      CuidadoFacial
+    </>
+  );
 }
 
 export default CuidadoFacial;

@@ -1,9 +1,13 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 function NotFound() {
-    return <div className="text-3xl underline font-bold">
-        NotFound
-    </div> 
+  return (
+    <>
+      <Navbar />
+      NotFound
+    </>
+  );
 }
 
 export default NotFound;

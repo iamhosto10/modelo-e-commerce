@@ -1,9 +1,13 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 function Comomecuido() {
-    return <div className="text-3xl underline font-bold">
-        Comomecuido
-    </div> 
+  return (
+    <>
+      <Navbar />
+      Comomecuido
+    </>
+  );
 }
 
 export default Comomecuido;

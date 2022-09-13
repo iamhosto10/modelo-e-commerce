@@ -1,9 +1,13 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 function Combos() {
-    return <div className="text-3xl underline font-bold">
-        Combos
-    </div> 
+  return (
+    <>
+      <Navbar />
+      Combos
+    </>
+  );
 }
 
 export default Combos;

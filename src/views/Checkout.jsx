@@ -1,9 +1,13 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 function Checkout() {
-    return <div className="text-3xl underline font-bold">
-        Checkout
-    </div> 
+  return (
+    <>
+      <Navbar />
+      Checkout
+    </>
+  );
 }
 
 export default Checkout;
