@@ -1,28 +1,42 @@
 import React from "react";
 import styled from "styled-components";
-import { Modal } from "reactstrap";
 import Menu from "./Menu";
 
-function Modalburguer() {
+function Modalburguer({ click, handleClick }) {
   return (
     <>
-      <Modalbur>
-        <section className="boton">
-          <button>x</button>
-        </section>
-
-        <Menu />
-      </Modalbur>
+      {click && (
+        <Background>
+          <Modalbur>
+            <section className="boton">
+              <button onClick={handleClick}>x</button>
+            </section>
+            <Menu />
+          </Modalbur>
+        </Background>
+      )}
     </>
   );
 }
 
 export default Modalburguer;
 
-const Modalbur = styled.div`
+const Background = styled.div`
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 999999;
+`;
+
+const Modalbur = styled.section`
   width: 80%;
   height: 100%;
+  background-color: white;
   border: 0.3px solid rgb(234, 234, 234);
+  overflow: scroll;
   .boton {
     display: block;
     width: 100%;
