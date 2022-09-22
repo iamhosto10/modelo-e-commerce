@@ -34,25 +34,38 @@ function Navbar() {
     setClick(!click);
   };
 
+  window.onscroll = function scrolling() {
+    console.log("hola", document.documentElement.scrollTop);
+    if (document.documentElement.scrollTop >= 108) {
+      console.log("true");
+      setScrolla(true);
+    } else {
+      console.log("falso");
+      setScrolla(false);
+    }
+  };
+
   return (
     <>
-      <Navbarc scrolla={scrolla}>
-        <div className="parteazul">
-          <h1>{texto}</h1>
-        </div>
-        <div className="parteblanca">
-          <section className="burger">
-            <Burguermenu click={click} handleClick={handleClick} />
-          </section>
-          <section className="logo">
-            <Link to={"/"}>
-              <img src={Logo} alt="Logo Crisnica" />
-            </Link>
-          </section>
-        </div>
-        <div className="parterosada">
-          <Menu />
-        </div>
+      <Navbarc>
+        <section id={scrolla ? "fix" : ""}>
+          <div className="parteazul">
+            <h1>{texto}</h1>
+          </div>
+          <div className="parteblanca">
+            <section className="burger">
+              <Burguermenu click={click} handleClick={handleClick} />
+            </section>
+            <section className="logo">
+              <Link to={"/"}>
+                <img src={Logo} alt="Logo Crisnica" />
+              </Link>
+            </section>
+          </div>
+          <div className="parterosada">
+            <Menu />
+          </div>
+        </section>
       </Navbarc>
       <Modalb>
         <Modalburguer click={click} handleClick={handleClick} />
@@ -70,9 +83,12 @@ const Modalb = styled.div`
 `;
 
 const Navbarc = styled.nav`
-  // position: fixed;
+  #fix {
+    width: 100%;
+    position: fixed;
+  }
   width: 100%;
-  padding: 0.4em;
+  // padding: 0.4em;
   z-index: 9999;
   .parteazul {
     height: 30px;
