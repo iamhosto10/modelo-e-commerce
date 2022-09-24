@@ -36,7 +36,7 @@ function Navbar() {
 
   window.onscroll = function scrolling() {
     console.log("hola", document.documentElement.scrollTop);
-    if (document.documentElement.scrollTop >= 108) {
+    if (document.documentElement.scrollTop >= 250) {
       console.log("true");
       setScrolla(true);
     } else {
@@ -95,7 +95,7 @@ const Navbarc = styled.nav`
     background-color: #b2e0ff;
     h1 {
       text-align: center;
-      pading: auto;
+      padding: auto;
       color: white;
     }
   }
@@ -123,7 +123,7 @@ const Navbarc = styled.nav`
       position: static;
       top: -22px;
       max-width: 120px;
-      min-heigth: 120px;
+      min-height: 120px;
       margin: 0 auto;
     }
   }
